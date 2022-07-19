@@ -1,9 +1,5 @@
-from csv import reader
 from transformers import BertForSequenceClassification, BertTokenizer
 import torch
-import numpy as np
-import tensorflow as tf
-from sklearn.metrics import precision_recall_fscore_support, roc_auc_score, roc_curve, auc, average_precision_score
 
 
 def run(seq):
