@@ -4,4 +4,4 @@ gunicorn
 flask
 firebase-admin
 transformers
-torch
+torch==1.12.0+cpu
