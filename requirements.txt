@@ -4,4 +4,5 @@ gunicorn
 flask
 firebase-admin
 transformers
-torch==1.12.0+cpu
+https://download.pytorch.org/whl/cpu/torch-1.9.1%2Bcpu-cp39-cp39-linux_x86_64.whl
+https://download.pytorch.org/whl/cpu/torchvision-0.9.1-cp39-cp39-manylinux2014_aarch64.whl
