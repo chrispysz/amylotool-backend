@@ -1,8 +1,9 @@
 #requirements.txt
 
+-f https://download.pytorch.org/whl/torch_stable.html
+torch==1.8.1+cpu
+torchvision==0.9.1+cpu
 gunicorn
 flask
 firebase-admin
 transformers
-https://download.pytorch.org/whl/cpu/torch-1.9.1%2Bcpu-cp38-cp38-linux_x86_64.whl
-https://download.pytorch.org/whl/cpu/torchvision-0.9.1-cp38-cp38-manylinux2014_aarch64.whl
