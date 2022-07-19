@@ -4,3 +4,4 @@ gunicorn
 flask
 firebase-admin
 transformers
+torch
