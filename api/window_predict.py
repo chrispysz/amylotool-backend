@@ -16,8 +16,9 @@ def run(seq):
 
 
     predictions = []
-    positive_sequences = []
+    sequences = []
     spec_preds = []
+    seq_dicts = []
 
     seq_proper = ''
     for aa in seq:
@@ -32,18 +33,22 @@ def run(seq):
             logits = outputs.logits
             prediction = torch.softmax(logits, axis=-1).detach().numpy()
             if prediction[0][1] > threshold:
-                print(subseq)
                 predictions.append('1')
             else:
 
                 predictions.append('0')
 
-            spec_preds.append(prediction[0][1])
+            seq_dict = {
+                "sequence": subseq,
+                "prediction": str(prediction[0][1])
+            }
+            seq_dicts.append(seq_dict)
+
 
     if '1' in predictions:
-        return "Positive"
+        return ("Positive", seq_dicts)
 
     else:
-        return "Negative"
+        return ("Negative", seq_dicts)
 
 

@@ -72,10 +72,11 @@ def delete():
 def predict():
 
     try:
-        result = run("MSELGARASGQGRIFQTTGDQYVQEHHHHYSADTVPLFAGEAGPYAGGSRPAAPDSVRIPLIGRPPRLLRDRAELCQALGTAVAGH")
+        sequence = request.json['sequence']
+        result = run(sequence)
         return jsonify(
-                message=result,
-                category="success",
+                classification=str(result[0]),
+                subsequences = str(result[1]),
                 status=200
             )
     except Exception as e:
