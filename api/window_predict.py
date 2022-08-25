@@ -1,5 +1,6 @@
 from transformers import BertForSequenceClassification, BertTokenizer
 import torch
+import logging
 
 
 def run(seq):
@@ -43,6 +44,8 @@ def run(seq):
                 "prediction": str(prediction[0][1])
             }
             seq_dicts.append(seq_dict)
+
+            logging.warn("Processed "+ str(i+1)+"/"+str(splits))
 
 
     if '1' in predictions:
