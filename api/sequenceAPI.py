@@ -1,7 +1,7 @@
 import uuid
 from flask import Blueprint, request, jsonify
 from firebase_admin import firestore
-from .window_predict import run
+from .single_predict import predict_single
 
 db = firestore.client()
 sequence_ref = db.collection('sequence')
@@ -73,7 +73,7 @@ def predict():
 
     try:
         sequence = request.json['sequence']
-        result = run(sequence)
+        result = predict_single(sequence)
         return jsonify(
                 classification=str(result[0]),
                 subsequence = str(result[1]),

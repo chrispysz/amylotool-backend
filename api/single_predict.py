@@ -3,7 +3,7 @@ import torch
 import logging
 
 
-def run(seq):
+def predict_single(seq):
 
     threshold = 0.5
 
