@@ -76,7 +76,7 @@ def predict():
         result = run(sequence)
         return jsonify(
                 classification=str(result[0]),
-                subsequences = str(result[1]),
+                subsequence = str(result[1]),
                 status=200
             )
     except Exception as e:
