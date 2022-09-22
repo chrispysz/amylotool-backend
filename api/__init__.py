@@ -9,8 +9,8 @@ def create_app():
     app.config['SECRET_KEY'] = '0934asbfgds43dfshf5432'
     app.config['TIMEOUT'] = None
 
-    from .sequenceAPI import sequenceAPI
+    from .workspacesAPI import workspacesAPI
 
-    app.register_blueprint(sequenceAPI, url_prefix='/sequence')
+    app.register_blueprint(workspacesAPI, url_prefix='/workspaces')
 
     return app
