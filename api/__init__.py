@@ -14,8 +14,11 @@ def create_app():
 
     from .workspacesAPI import workspacesAPI
     from .sequencesAPI import sequencesAPI
+    from .subsequencesAPI import subsequencesAPI;
 
     app.register_blueprint(workspacesAPI, url_prefix='/workspace')
     app.register_blueprint(sequencesAPI, url_prefix='/sequence')
+    app.register_blueprint(subsequencesAPI, url_prefix='/subsequence')
+    
 
     return app
