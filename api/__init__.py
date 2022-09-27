@@ -13,7 +13,9 @@ def create_app():
     
 
     from .workspacesAPI import workspacesAPI
+    from .sequencesAPI import sequencesAPI
 
-    app.register_blueprint(workspacesAPI, url_prefix='/workspaces')
+    app.register_blueprint(workspacesAPI, url_prefix='/workspace')
+    app.register_blueprint(workspacesAPI, url_prefix='/sequence')
 
     return app
