@@ -8,7 +8,7 @@ sequence_ref = db.collection('sequences')
 
 sequencesAPI = Blueprint('sequencesAPI', __name__)
 
-@wsequencesAPI.route('/add', methods=['POST'])
+@sequencesAPI.route('/add', methods=['POST'])
 def create():
     """
         create() : Add document to Firestore collection with request body.
