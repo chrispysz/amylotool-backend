@@ -13,12 +13,10 @@ def create_app():
     
 
     from .workspacesAPI import workspacesAPI
-    from .sequencesAPI import sequencesAPI
-    from .subsequencesAPI import subsequencesAPI;
+    from .predictionsAPI import predictionsAPI
 
     app.register_blueprint(workspacesAPI, url_prefix='/workspace')
-    app.register_blueprint(sequencesAPI, url_prefix='/sequence')
-    app.register_blueprint(subsequencesAPI, url_prefix='/subsequence')
+    app.register_blueprint(predictionsAPI, url_prefix='/predict')
     
 
     return app
