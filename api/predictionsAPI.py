@@ -8,7 +8,7 @@ predictionsAPI = Blueprint('predictionsAPI', __name__)
 
 
 @predictionsAPI.route('/single', methods=['POST'])
-def predict():
+def predictSingle():
 
     try:
         sequence = request.json['sequence']
@@ -22,7 +22,7 @@ def predict():
 
 
 @predictionsAPI.route('/full', methods=['POST'])
-def predict():
+def predictFull():
 
     try:
         sequence = request.json['sequence']
