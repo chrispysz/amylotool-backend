@@ -1,9 +1,12 @@
 from transformers import BertForSequenceClassification, BertTokenizer
 import torch
 import logging
+import time
 
 
-def run(seq):
+def predict_window(seq):
+
+    start = time.process_time()
 
     seq_cutoff = 39
 
@@ -14,7 +17,6 @@ def run(seq):
     tokenizer = BertTokenizer.from_pretrained("./models/tokenizer/")
 
     current_label = 0
-
 
     predictions = []
     sequences = []
@@ -45,13 +47,12 @@ def run(seq):
             }
             seq_dicts.append(seq_dict)
 
-            logging.warn("Processed "+ str(i+1)+"/"+str(splits))
+            logging.warn("Processed " + str(i+1)+"/"+str(splits))
 
-
+    elapsed = time.process_time() - start
+    logging.warn(msg="Prediction processed in "+str(elapsed)+" seconds")
     if '1' in predictions:
         return ("Positive", seq_dicts)
 
     else:
         return ("Negative", seq_dicts)
-
-
