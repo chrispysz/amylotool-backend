@@ -23,4 +23,4 @@ def create_app():
         return 'amylotool-backend'
     
 
-    return app
+    return application
