@@ -17,6 +17,10 @@ def create_app():
 
     app.register_blueprint(workspacesAPI, url_prefix='/workspace')
     app.register_blueprint(predictionsAPI, url_prefix='/predict')
+
+    @app.route('/')
+    def index():
+        return 'amylotool-backend'
     
 
     return app
