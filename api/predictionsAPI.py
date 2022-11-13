@@ -1,11 +1,13 @@
 import requests
 from flask import Blueprint, request, jsonify
+from flask_cors import cross_origin
 
 
 predictionsAPI = Blueprint('predictionsAPI', __name__)
 
 
 @predictionsAPI.route('/model', methods=['POST'])
+@cross_origin()
 def model():
     available_models = [{"model":"AmBERT", "url":"https://amylotool-ambert.onrender.com/predict/full"}]
 
