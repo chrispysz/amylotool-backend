@@ -14,6 +14,8 @@ def model():
     try:
         model = request.json['model']
         sequence = request.json['sequence']
+        if (sequence == "" or sequence == None):
+            sequence = ""
         for m in available_models:
             if m['model'] == model:
                 response = requests.post(m['url'], json={"sequence":sequence})
