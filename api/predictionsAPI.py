@@ -1,8 +1,5 @@
-import uuid
 import requests
 from flask import Blueprint, request, jsonify
-from .single_predict import predict_single
-from .window_predict import predict_window
 
 
 predictionsAPI = Blueprint('predictionsAPI', __name__)
