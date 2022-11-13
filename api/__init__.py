@@ -4,7 +4,7 @@ from flask_cors import CORS
 def create_app():
     app = Flask(__name__)
     CORS(app)
-    app.config['SECRET_KEY'] = '0934asbfgds43dfshf5432'
+    app.config['SECRET_KEY'] = 'iXPpDJauJ9MdB73wn01k7s0H3OtdW1Z7'
     app.config['TIMEOUT'] = None
     
     from .predictionsAPI import predictionsAPI
