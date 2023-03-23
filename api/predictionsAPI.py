@@ -10,7 +10,7 @@ predictionsAPI = Blueprint('predictionsAPI', __name__)
 @cross_origin()
 def model():
     available_models = [{"model":"AmBERT", "url":"https://amylotool-ambert.herokuapp.com/predict/full"},
-    {"model":"ProteinBERT", "url":"https://amylotool-proteinbert-xt1.azurewebsites.net/predict/full"}]
+    {"model":"ProteinBERT", "url":"https://amylotool-proteinbert.azurewebsites.net/predict/full"}]
 
     try:
         model = request.json['model']
@@ -19,8 +19,11 @@ def model():
         for m in available_models:
             if m['model'] == model:
                 process = True
+                processing_model = m
         if process:
-            response = requests.post(m['url'], json={"sequence":sequence})
+            print(processing_model['url'])
+            response = requests.post(processing_model['url'], json={"sequence":sequence})
+            print(response)
             return response.json()
         else:
             return jsonify({"error":"Model not found"}), 404
