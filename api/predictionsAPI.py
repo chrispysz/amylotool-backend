@@ -15,12 +15,15 @@ def model():
     try:
         model = request.json['model']
         sequence = request.json['sequence']
+        process = False
         for m in available_models:
             if m['model'] == model:
-                response = requests.post(m['url'], json={"sequence":sequence})
-                return response.json()
-            else:
-                return jsonify({"error":"Model not found"}), 404
+                process = True
+        if process:
+            response = requests.post(m['url'], json={"sequence":sequence})
+            return response.json()
+        else:
+            return jsonify({"error":"Model not found"}), 404
     except Exception as e:
         return f"An Error Occurred: {e}"
 
