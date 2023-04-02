@@ -9,7 +9,7 @@ predictionsAPI = Blueprint('predictionsAPI', __name__)
 @predictionsAPI.route('/model', methods=['POST'])
 @cross_origin()
 def model():
-    available_models = [{"model":"AmBERT", "url":"https://amylotool-ambert.herokuapp.com/predict/full"},
+    available_models = [{"model":"AmBERT", "url":"https://amylotool-ambert.azurewebsites.net/predict/full"},
     {"model":"ProteinBERT", "url":"https://amylotool-proteinbert.azurewebsites.net/predict/full"}]
 
     try:
